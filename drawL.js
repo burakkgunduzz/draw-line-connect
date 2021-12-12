@@ -1,55 +1,73 @@
 import getElement from "./helpers/getElement";
 import getOffset from "./helpers/getOffset";
 
-const drawL = (id1, id2, color, thickness, direction) => {
+const drawL = (props) => {
+  const {
+    startingElement,
+    endingElement,
+    color,
+    thickness,
+    shape = "normal",
+  } = props;
+  const {
+    id: startingElementId,
+    x: horizontal1,
+    y: vertical1,
+  } = startingElement;
+  const { id: endingElementId, x: horizontal2, y: vertical2 } = endingElement;
+
   const code = () => {
-    const firstElement = getElement(id1);
-    const secondElement = getElement(id2);
+    const firstElement = getElement(startingElementId);
+    const secondElement = getElement(endingElementId);
 
     const off1 = getOffset(firstElement);
     const off2 = getOffset(secondElement);
 
     let x1, x2, y1, y2, a1, a2, b1, b2;
 
-    switch (direction) {
-      case "leftSideToRight-topSideToTop":
-        //a straight line from right center of div1 to the right
-        x1 = off1.left + off1.width;
-        y1 = off1.top + off1.height / 2;
-        x2 = off2.left + off2.width / 2;
-        y2 = y1;
+    x1 = off1[horizontal1];
+    y1 = off1[vertical1];
+    x2 = off2[horizontal2];
+    y2 = off2[vertical2];
 
-        //a straight line from top center of div2 to the up
-        a1 = off2.left + off2.width / 2;
-        b1 = off1.top + off1.height / 2;
-        a2 = off2.left + off2.width / 2;
-        b2 = off2.top;
+    switch (shape) {
+      case "normal":
+        p1 = off1.mid;
+        p2 = off2.mid;
         break;
-      case "rightSideToRight-bottomSideToDown":
-        // a a straight line from right center of element1 to the right
-
-        //a straight line from bottom center of element2 to the down
-
+      case "reverseL":
+        p1 = off1.mid;
+        p2 = off2.mid;
+        break;
+      case "upsidedownL":
+        p1 = off1.center;
+        p2 = off2.center;
+        break;
+      case "reverseUpsidedownL":
+        p1 = off2.center;
+        p2 = off1.mid;
         break;
       default:
-        throw new Error("direction is not correct!");
+        throw new Error("shape is not correct");
     }
 
     // line settings for the first div
-    const length = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
-    const cx = (x1 + x2) / 2 - length / 2;
-    const cy = (y1 + y2) / 2 - thickness / 2;
-    const angle = Math.atan2(y1 - y2, x1 - x2) * (180 / Math.PI);
+    const length = Math.sqrt((p1 - x1) * (p1 - x1) + (p2 - y1) * (p2 - y1));
+    const cx = (x1 + p1) / 2 - length / 2;
+    const cy = (y1 + p2) / 2 - thickness / 2;
+    const angle = Math.atan2(y1 - p2, x1 - p1) * (180 / Math.PI);
 
     //line settings for the second div
-    const length2 = Math.sqrt((a2 - a1) * (a2 - a1) + (b2 - b1) * (b2 - b1));
-    const cx2 = (a1 + a2) / 2 - length2 / 2;
-    const cy2 = (b1 + b2) / 2 - thickness / 2;
-    const angle2 = Math.atan2(b1 - b2, a1 - a2) * (180 / Math.PI);
+    const length2 = Math.sqrt((x2 - p1) * (x2 - p1) + (y2 - p2) * (y2 - p2));
+    const cx2 = (p1 + x2) / 2 - length2 / 2;
+    const cy2 = (p2 + y2) / 2 - thickness / 2;
+    const angle2 = Math.atan2(p2 - y2, p1 - x2) * (180 / Math.PI);
 
     //creating a line for each element
-    const htmlLine1 =
-      "<div style='padding:0px; margin:0px; height:" +
+    const line1 = document.createElement("div");
+    const line2 = document.createElement("div");
+    line1.style =
+      "padding:0px; margin:0px; height:" +
       thickness +
       "px; background-color:" +
       color +
@@ -69,9 +87,9 @@ const drawL = (id1, id2, color, thickness, direction) => {
       angle +
       "deg); transform:rotate(" +
       angle +
-      "deg);' />";
-    const htmlLine2 =
-      "<div style='padding:0px; margin:0px; height:" +
+      "deg);";
+    line2.style =
+      "padding:0px; margin:0px; height:" +
       thickness +
       "px; background-color:" +
       color +
@@ -91,9 +109,9 @@ const drawL = (id1, id2, color, thickness, direction) => {
       angle2 +
       "deg); transform:rotate(" +
       angle2 +
-      "deg);' />";
-    document.body.innerHTML += htmlLine1;
-    document.body.innerHTML += htmlLine2;
+      "deg);";
+    document.body.appendChild(line1);
+    document.body.appendChild(line2);
   };
 
   window.addEventListener("DOMContentLoaded", () => {

@@ -17,6 +17,8 @@ function getOffset(element) {
     bottom,
     mid,
     center,
+    width,
+    height,
   };
 }
 
