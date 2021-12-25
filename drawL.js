@@ -1,19 +1,21 @@
 import getElement from "./helpers/getElement";
 import getOffset from "./helpers/getOffset";
 
-const drawL = (props) => {
+const drawL = (params) => {
   const {
     startingElement,
     endingElement,
     color,
     thickness,
     shape = "normal",
-  } = props;
+  } = params;
+
   const {
     id: startingElementId,
     x: horizontal1,
     y: vertical1,
   } = startingElement;
+
   const { id: endingElementId, x: horizontal2, y: vertical2 } = endingElement;
 
   const code = () => {
@@ -23,7 +25,7 @@ const drawL = (props) => {
     const off1 = getOffset(firstElement);
     const off2 = getOffset(secondElement);
 
-    let x1, x2, y1, y2, a1, a2, b1, b2;
+    let x1, x2, y1, y2;
 
     x1 = off1[horizontal1];
     y1 = off1[vertical1];
@@ -32,20 +34,12 @@ const drawL = (props) => {
 
     switch (shape) {
       case "normal":
-        p1 = off1.mid;
-        p2 = off2.mid;
-        break;
-      case "reverseL":
-        p1 = off1.mid;
-        p2 = off2.mid;
+        p1 = x1;
+        p2 = y2;
         break;
       case "upsidedownL":
-        p1 = off1.center;
-        p2 = off2.center;
-        break;
-      case "reverseUpsidedownL":
-        p1 = off2.center;
-        p2 = off1.mid;
+        p1 = x2;
+        p2 = y1;
         break;
       default:
         throw new Error("shape is not correct");
@@ -66,6 +60,7 @@ const drawL = (props) => {
     //creating a line for each element
     const line1 = document.createElement("div");
     const line2 = document.createElement("div");
+
     line1.style =
       "padding:0px; margin:0px; height:" +
       thickness +
@@ -88,6 +83,7 @@ const drawL = (props) => {
       "deg); transform:rotate(" +
       angle +
       "deg);";
+
     line2.style =
       "padding:0px; margin:0px; height:" +
       thickness +
@@ -110,6 +106,7 @@ const drawL = (props) => {
       "deg); transform:rotate(" +
       angle2 +
       "deg);";
+
     document.body.appendChild(line1);
     document.body.appendChild(line2);
   };
