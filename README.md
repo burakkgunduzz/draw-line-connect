@@ -89,6 +89,8 @@ No you can not. Right now it only works in vanilla JavaScript projects but soon 
 
 - Add on scroll event listener support
 
+- Add Intersection Observer
+
 ## Contributing
 
 Contributions are always welcome!
