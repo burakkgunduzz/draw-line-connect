@@ -51,6 +51,39 @@ drawL({
 });
 ```
 
+## API Referance
+
+#### drawLine()
+
+This function should take an object as a parameter with following keys:
+
+- startingElement: object (required)
+  id: string, required
+  x: string, (values that can be passed: "left" || "center" || "right", required)
+  y: string (values that can be passed: "top" || "mid" || "bottom", required)
+- endingElement: object (required)
+  id: string, required
+  x: string, (values that can be passed: "left" || "center" || "right", required)
+  y: string (values that can be passed: "top" || "mid" || "bottom", required)
+- color: string (color in any format, required)
+- thickness: integer (thickness for the line, required)
+
+#### drawL()
+
+This function should take an object as a parameter with following keys:
+
+- startingElement: object (required)
+  id: string, required
+  x: string, (values that can be passed: "left" || "center" || "right", required)
+  y: string (values that can be passed: "top" || "mid" || "bottom", required)
+- endingElement: object (required)
+  id: string, required
+  x: string, (values that can be passed: "left" || "center" || "right", required)
+  y: string (values that can be passed: "top" || "mid" || "bottom", required)
+- color: string (color in any format, required)
+- thickness: integer (thickness for the line, required)
+- shape: string ("upsidedownL", optional, defaults to "normal")
+
 ## Demo
 
 drawL => https://codepen.io/Maxlous/pen/dyVOXYJ
