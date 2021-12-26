@@ -58,14 +58,21 @@ drawL({
 This function should take an object as a parameter with following keys:
 
 - startingElement: object (required)
-  id: string, required
-  x: string, (values that can be passed: "left" || "center" || "right", required)
-  y: string (values that can be passed: "top" || "mid" || "bottom", required)
+  | Key | Value |
+  | ------------- |:-------------:|
+  | id (required) | string |
+  | x (required) | "left" or "center" or "right" |
+  | y (required) | "top" or "mid" or "bottom" |
+
 - endingElement: object (required)
-  id: string, required
-  x: string, (values that can be passed: "left" || "center" || "right", required)
-  y: string (values that can be passed: "top" || "mid" || "bottom", required)
+  | Key | Value |
+  | ------------- |:-------------:|
+  | id (required) | string |
+  | x (required) | "left" or "center" or "right" |
+  | y (required) | "top" or "mid" or "bottom" |
+
 - color: string (color in any format, required)
+
 - thickness: integer (thickness for the line, required)
 
 #### drawL()
@@ -73,15 +80,23 @@ This function should take an object as a parameter with following keys:
 This function should take an object as a parameter with following keys:
 
 - startingElement: object (required)
-  id: string, required
-  x: string, (values that can be passed: "left" || "center" || "right", required)
-  y: string (values that can be passed: "top" || "mid" || "bottom", required)
+  | Key | Value |
+  | ------------- |:-------------:|
+  | id (required) | string |
+  | x (required) | "left" or "center" or "right" |
+  | y (required) | "top" or "mid" or "bottom" |
+
 - endingElement: object (required)
-  id: string, required
-  x: string, (values that can be passed: "left" || "center" || "right", required)
-  y: string (values that can be passed: "top" || "mid" || "bottom", required)
+  | Key | Value |
+  | ------------- |:-------------:|
+  | id (required) | string |
+  | x (required) | "left" or "center" or "right" |
+  | y (required) | "top" or "mid" or "bottom" |
+
 - color: string (color in any format, required)
+
 - thickness: integer (thickness for the line, required)
+
 - shape: string ("upsidedownL", optional, defaults to "normal")
 
 ## Demo
