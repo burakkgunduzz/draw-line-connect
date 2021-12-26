@@ -68,7 +68,7 @@ drawLine => https://codepen.io/Maxlous/pen/BawogPw
 
 #### Can I use it in frameworks such as React?
 
-Yes you can, since it is a regular JavaScript function you can use it in your components or in a useEffect to manipulate your page
+No you can not. Right now it only works in vanilla JavaScript projects but soon there will be a React-compatible version of this package.
 
 ## Screenshots
 
@@ -76,6 +76,8 @@ Yes you can, since it is a regular JavaScript function you can use it in your co
 ![L Line](https://res.cloudinary.com/maxlous/image/upload/v1640438489/for%20developmental%20projects/Screen_Shot_2021-12-25_at_16.20.53_olkduh.png)
 
 ## Roadmap
+
+- Add React support
 
 - Add a custom css support for lines
 

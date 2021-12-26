@@ -25,7 +25,7 @@ const drawL = (params) => {
     const off1 = getOffset(firstElement);
     const off2 = getOffset(secondElement);
 
-    let x1, x2, y1, y2;
+    let x1, x2, y1, y2, p1, p2;
 
     x1 = off1[horizontal1];
     y1 = off1[vertical1];
