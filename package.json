@@ -1,6 +1,6 @@
 {
   "name": "draw-line-connect",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "You can draw lines between your dom elements and connect them. This visual line can be either linear or in the shape of L if the elements that will be connected is not in parallel positions. ",
   "source": "src/index.js",
   "main": "dist/main.js",
