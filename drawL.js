@@ -5,8 +5,8 @@ const drawL = (params) => {
   const {
     startingElement,
     endingElement,
-    color,
-    thickness,
+    color = "black",
+    thickness = 4,
     shape = "normal",
   } = params;
 

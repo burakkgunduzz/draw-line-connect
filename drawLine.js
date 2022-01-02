@@ -1,8 +1,14 @@
 import getElement from "./helpers/getElement";
 import getOffset from "./helpers/getOffset";
 
-const drawLine = (props) => {
-  const { startingElement, endingElement, color, thickness } = props;
+const drawLine = (params) => {
+  const {
+    startingElement,
+    endingElement,
+    color = "black",
+    thickness = 4,
+  } = params;
+
   const {
     id: startingElementId,
     x: horizontal1,
