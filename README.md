@@ -4,7 +4,7 @@ You can connect your dom elements with drawing lines between them
 
 And the best part is, it can be either a diagonal line or in the shape of L!
 
-This packege can be only used in vanilla JS projects.
+This package can be only used in vanilla JS projects.
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
@@ -120,7 +120,7 @@ drawLine => https://codepen.io/Maxlous/pen/BawogPw
 
 #### Can I use it in frameworks such as React?
 
-No you can not! But there is react-compatible package for it! check out react-drawline
+No you can not! But there is react-compatible package for it! check out [react-drawline](https://github.com/burakkgunduzz/react-drawline)
 
 ## Screenshots
 
